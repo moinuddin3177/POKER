@@ -37,6 +37,10 @@
 		return c == 1;
 	}
 	
+        public static int highCard(int[] pips, int[] suits) {
+		
+		return pips[pips.length-1];
+	}
 
 
       }
