@@ -23,6 +23,20 @@
 		
 	  }
 
+          public static boolean isThreeOfAKind(int[] pips, int[] suits) {
+		
+		int c = 0;
+		for (int i = 0; i < pips.length-2; i++) {
+			
+			if(pips[i] == pips[i+1] && pips[i] == pips[i+2]) {
+				c++;
+			}
+			
+		}
+		
+		return c == 1;
+	}
+	
 
 
       }
