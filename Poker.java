@@ -32,10 +32,9 @@ public class Poker {
 
 	public boolean isTwoPair(int[] pips, int[] suits) {
 		int c = 0;
-		for (int i = 0; i < pips.length - 2; i++) {
+		for (int i = 0; i < pips.length - 1; i++) {
 			if (pips[i] == pips[i + 1]) {
 				c++;
-				i++;
 			}
 		}
 		return c == 2;
@@ -139,16 +138,7 @@ public class Poker {
 			return "It is a draw";
 
 		} else {
-			if (!Arrays.asList(ranks).contains(rankOfA)
-					&& !Arrays.asList(ranks).contains(rankOfB)) {
-				ra = Integer.parseInt(rankOfA);
-				rb = Integer.parseInt(rankOfB);
-				return ra > rb ? "A is winner" : "B is winner";
-			} else if (!Arrays.asList(ranks).contains(rankOfA)) {
-				return "B is winner";
-			} else if (!Arrays.asList(ranks).contains(rankOfB)) {
-				return "A is winner";
-			}
+			
 			if (Arrays.asList(ranks).contains(rankOfA)) {
 				ra = Arrays.asList(ranks).indexOf(rankOfA);
 			}
