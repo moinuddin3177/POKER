@@ -1,49 +1,37 @@
-public class Cards {
-    private int type, value;
-    private String[] suit = {"Clubs",  "Diamonds","Hearts", "Spades"};
+import java.util.*;
+public class Card {
+    public int suit, pip;
+    private String[] suits = {"clubs",  "diamonds","hearts", "spades"};
     private String[] cardValue = {"","Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
 
-     Cards(int values, int types) {
-        this.type = types; 
-        this.value = values;
-    }
-     
-    public String display() {
-        String finalCard = cardValue[value] + " of " + suit[type];
 
+
+    Card(int values, String type) {
+        this.pip = values;
+        this.suit = Arrays.asList(suits).indexOf(type);
+
+    }
+
+    public String display() {
+
+        String finalCard = cardValue[pip] + " of " + suits[suit];
         return finalCard;
     }
-    
-    public static String compare(Cards a,Cards b ){
-    	String greatest=" ";
-    	if(a.value > b.value){
-    		greatest = a.display();
-    	}else if(a.value<b.value){
-    	greatest = b.display();
-    	}else if(a.value == b.value){
-    		if(a.type >b.type){
-    			greatest = a.display();
-    		}else
-    			greatest = b.display();	
-    	}
-    	return greatest;   	
+
+    public String compare(Card a,Card b ){
+        String greatest=" ";
+        if(a.pip > b.pip){
+            greatest = "c1";
+        }else if(a.pip<b.pip){
+            greatest = "c2";
+        }else if(a.pip == b.pip){
+            if(a.suit >b.suit){
+                greatest = "c1";
+            }else
+                greatest = "c2";   
+        }
+        return greatest;      
     }
-    public static void main(String[] args)
-    {
-        Cards c1= new Cards(6,2);
-        Cards c2 = new Cards(6,1);
-        System.out.println(c1.compare(c1,c2));
-        
 
 
-    }
-    
-    
-    
-    
 }
-
-
-
-
-
