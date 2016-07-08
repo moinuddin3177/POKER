@@ -94,6 +94,7 @@ public class Poker {
         return false;
 
     }
+<<<<<<< HEAD
 public String checkRank(Card a, Card b, Card c, Card d, Card e) {
 		int[] pipValues = {a.pip, b.pip, c.pip, d.pip, e.pip};
 		int[] suits= {a.suit, b.suit, c.suit, d.suit, e.suit};
