@@ -1,3 +1,5 @@
+
+
 import java.util.*;
 public class Poker {
     static int is3OfKind = 0;
@@ -16,19 +18,15 @@ public class Poker {
     }
     public  boolean isFlush(int[] pips, int[] suits) {
         for (int i : suits) {
-            if(i != suits[0]) {
-                return false;
-            }
+        	return i != suits[0];
         }
-        return true;
+        return false;
     }
     public  boolean isStraight(int[] pips, int[] suits) {
         for (int i = 1; i < pips.length; i++) {
-            if (pips[i-1] + 1 != pips[i]) {
-                return false;
-            }
+            return pips[i-1] + 1 != pips[i];
         }
-        return true;
+        return false;
     }
     public  boolean isTwoPair(int[] pips, int[] suits) {
         int c = 0;
@@ -39,47 +37,43 @@ public class Poker {
         }
         return c == 2;
     }
-    public  boolean isPair(int[] pips, int[] suits) {
-        int c = 0;
+    public  boolean isPair(int[] pips, int[] suits) { 
         for (int i = 0; i < pips.length-1; i++) {
             if(pips[i] == pips[i+1] ) {
-                c++;
+                return true;
             }
         }
-        return c == 1;
+        return false;
     }
-    public  boolean isThreeOfAKind(int[] pips, int[] suits) {
-        int c = 0;
+    public  boolean isThreeOfAKind(int[] pips, int[] suits) { 
         for (int i = 0; i < pips.length-2; i++) {
             if(pips[i] == pips[i+1] && pips[i] == pips[i+2]) {
-                c++;
                 is3OfKind = pips[i];
+                return false;
             }
            
         }
-        return c == 1;
+        return false;
     }
-    public  boolean isFourOfAKind(int[] pips, int[] suits) {
-        int c = 0;
+    public  boolean isFourOfAKind(int[] pips, int[] suits) { 
         for (int i = 0; i < pips.length-3; i++) {
             if(pips[i] == pips[i+1] && pips[i] == pips[i+2] && pips[i] == pips[i+3]) {
-                c++;
+                return true;
             }
         }
-        return c == 1;
+        return false;
     }
     public boolean isFullHouse(int []pips,int[] suits){
-        int n=0;
         if(isThreeOfAKind(pips,suits)){
         for (int i = 0; i < pips.length-1; i++) {        
             if(pips[i] != is3OfKind){
                 if(pips[i] == pips[i+1]){
-                    n++ ;
+                   return true ;
                 }
             }
         }
     }
-        return n==1;
+        return false;
     }
     public  int highCard(int[] pips, int[] suits) {
         return pips[pips.length-1];
