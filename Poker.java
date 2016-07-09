@@ -70,7 +70,7 @@ public class Poker {
 	}
 
 	public boolean isFullHouse(int[] pips, int[] suits) {
-		if (isThreeOfAKind(pips, suits)) {
+		if (isThreeOfAKind(pips)) {
 			for (int i = 0; i < pips.length - 1; i++) {
 				if (pips[i] != is3OfKind) {
 					if (pips[i] == pips[i + 1]) {
