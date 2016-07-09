@@ -1,5 +1,4 @@
 
-
 import java.util.*;
 
 public class Poker {
@@ -19,7 +18,7 @@ public class Poker {
 		return true;
 	}
 
-	public boolean isFlush(int[] pips, int[] suits) {
+	public boolean isFlush(int[] suits) {
 		for (int i : suits) {
 			return i != suits[0];
 		}
@@ -30,7 +29,7 @@ public class Poker {
 		return pips[0] - pips[4] == 4;
 	}
 
-	public boolean isTwoPair(int[] pips, int[] suits) {
+	public boolean isTwoPair(int[] pips) {
 		int c = 0;
 		for (int i = 0; i < pips.length - 1; i++) {
 			if (pips[i] == pips[i + 1]) {
@@ -40,7 +39,7 @@ public class Poker {
 		return c == 2;
 	}
 
-	public boolean isPair(int[] pips, int[] suits) {
+	public boolean isPair(int[] pips) {
 		for (int i = 0; i < pips.length - 1; i++) {
 			if (pips[i] == pips[i + 1]) {
 				return true;
@@ -49,7 +48,7 @@ public class Poker {
 		return false;
 	}
 
-	public boolean isThreeOfAKind(int[] pips, int[] suits) {
+	public boolean isThreeOfAKind(int[] pips) {
 		for (int i = 0; i < pips.length - 2; i++) {
 			if (pips[i] == pips[i + 1] && pips[i] == pips[i + 2]) {
 				is3OfKind = pips[i];
@@ -83,7 +82,7 @@ public class Poker {
 		return false;
 	}
 
-	public int highCard(int[] pips, int[] suits) {
+	public int highCard(int[] pips) {
 		return pips[pips.length - 1];
 	}
 
@@ -109,18 +108,18 @@ public class Poker {
 			rank = "FourOfAKind";
 		} else if (isFullHouse(pipValues, suits)) {
 			rank = "FullHouse";
-		} else if (isFlush(pipValues, suits)) {
+		} else if (isFlush(pipValues)) {
 			rank = "Flush";
 		} else if (isStraight(pipValues)) {
 			rank = "Straight";
-		} else if (isThreeOfAKind(pipValues, suits)) {
+		} else if (isThreeOfAKind(pipValues)) {
 			rank = "ThreeOfAKind";
-		} else if (isTwoPair(pipValues, suits)) {
+		} else if (isTwoPair(pipValues)) {
 			rank = "TwoPair";
-		} else if (isPair(pipValues, suits)) {
+		} else if (isPair(pipValues)) {
 			rank = "Pair";
 		} else {
-			rank = "" + highCard(pipValues, suits);
+			rank = "" + highCard(pipValues);
 		}
 		return rank;
 	}
